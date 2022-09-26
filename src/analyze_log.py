@@ -52,7 +52,7 @@ def days_never_visited_by_customer(csv_list, customer):
 
 def analyze_log(path_to_file):
     if not path_to_file.endswith(".csv"):
-            raise FileNotFoundError(f"Extensão inválida: '{path_to_file}'")
+        raise FileNotFoundError(f"Extensão inválida: '{path_to_file}'")
 
     try:
         with open(path_to_file, encoding="utf-8") as csvfile:
