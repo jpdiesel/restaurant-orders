@@ -9,11 +9,13 @@ def read_imported_csv(path_to_file):
             csv_list.append(item)
     return csv_list
 
-def most_requested_by_client(csv_list): 
-    dishes = dict() 
-    for client, dish, _day in csv_list:  
-        dishes[client] = dish   
+
+def most_requested_by_client(csv_list):
+    dishes = dict()
+    for client, dish, _day in csv_list:
+        dishes[client] = dish
     return dishes['maria']
+
 
 def hamburguers_requests_by_arnaldo(csv_list):
     burguers = 0
@@ -21,6 +23,7 @@ def hamburguers_requests_by_arnaldo(csv_list):
         if client == "arnaldo" and dish == "hamburguer":
             burguers += 1
     return burguers
+
 
 def never_requested_by_customer(csv_list, customer):
     all_dishes = set()
@@ -34,6 +37,7 @@ def never_requested_by_customer(csv_list, customer):
 
     return all_dishes - joao_dishes
 
+
 def days_never_visited_by_customer(csv_list, customer):
     all_days = set()
     joao_day = set()
@@ -44,6 +48,7 @@ def days_never_visited_by_customer(csv_list, customer):
             joao_day.add(day)
 
     return all_days - joao_day
+
 
 def analyze_log(path_to_file):
     if not path_to_file.endswith(".csv"):
@@ -61,7 +66,7 @@ def analyze_log(path_to_file):
         ]
 
         with open("data/mkt_campaign.txt", "w") as csvfile:
-            for item in result: 
+            for item in result:
                 csvfile.write(str(item))
                 csvfile.write('\n')
 

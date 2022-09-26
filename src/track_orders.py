@@ -1,10 +1,12 @@
-from collections import Counter
-from src.analyze_log import (never_requested_by_customer, days_never_visited_by_customer)
+from src.analyze_log import (
+    never_requested_by_customer, days_never_visited_by_customer
+)
 
 
 class TrackOrders:
     def __init__(self):
         self._orders = []
+
     # aqui deve expor a quantidade de estoque
     def __len__(self):
         return len(self._orders)
@@ -17,7 +19,7 @@ class TrackOrders:
         for client, dish, _day in self._orders:
             if client == customer:
                 ordered[dish] = ordered.get(dish, 0) + 1
-         
+
         return max(ordered, key=ordered.get)
 
     # https://stackoverflow.com/questions/48606406/find-most-frequent-value-in-python-dictionary-value-with-maximum-count
